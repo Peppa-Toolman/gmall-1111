@@ -1,0 +1,15 @@
+dataSources:
+    db_master: !!com.zaxxer.hikari.HikariDataSource
+        driverClassName: com.mysql.cj.jdbc.Driver
+        jdbcUrl: jdbc:mysql://81.68.76.155:3306/gmall_oms?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8&useLegacyDatetimeCode=false&allowPublicKeyRetrieval=true
+        username: root
+        password: 3306
+    db_slave: !!com.zaxxer.hikari.HikariDataSource
+        driverClassName: com.mysql.cj.jdbc.Driver
+        jdbcUrl: jdbc:mysql://81.68.76.155:3316/gmall_oms?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8&useLegacyDatetimeCode=false&allowPublicKeyRetrieval=true
+        username: root
+        password: 3306
+masterSlaveRule:
+    name: db_ms
+    masterDataSourceName: db_master
+    slaveDataSourceNames: [ db_slave ]
